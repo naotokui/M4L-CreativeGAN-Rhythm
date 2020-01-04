@@ -1,0 +1,23 @@
+{
+  "name": "M4L-x-rhythm-can",
+  "version": "1.0.0",
+  "description": "",
+  "main": "rhythm-gan.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sfc-computational-creativity-lab/M4L-x-rhythm-can.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sfc-computational-creativity-lab/M4L-x-rhythm-can/issues"
+  },
+  "homepage": "https://github.com/sfc-computational-creativity-lab/M4L-x-rhythm-can#readme",
+  "dependencies": {
+    "@tensorflow/tfjs-node": "^1.5.1",
+  }
+}
