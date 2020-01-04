@@ -20,9 +20,19 @@ async function loadModel(filepath){
     generator = await tf.loadLayersModel(filepath);
 }
 
-function generate(){
+function generate(genre=-1){
     let zs = tf.randomNormal([1, Z_DIM]);  // mean = 0.0 / stddev = 1.0
-    let outputsOn = generator.apply(zs);    
+
+    // conditioned with genre
+    if (genre >= 0){
+        let condition = tf.tensor([[genre]])
+        var outputsOn = generator.apply([zs, condition]);  
+    } 
+    // non conditional
+    else {
+        var outputsOn = generator.apply(zs);    
+    }
+
     console.log(outputsOn.squeeze().transpose().shape);
     return outputsOn.squeeze().transpose().arraySync();
 }
@@ -34,16 +44,16 @@ Max.addHandler("loadmodel", (path)=>{
     console.log("Model loaded!");
 });
 
-Max.addHandler("generate", (threshold)=>{
-    generatePattern(threshold);
+Max.addHandler("generate", (threshold, genre=-1)=>{
+    generatePattern(threshold, genre);
 });
 
-async function generatePattern(threshold){
+async function generatePattern(threshold, genre){
     if (isModelLoaded){    
       if (isGenerating) return;
   
       isGenerating = true;
-      let onsets = generate();
+      let onsets = generate(genre);
 
     //  console.log(onsets);
 
