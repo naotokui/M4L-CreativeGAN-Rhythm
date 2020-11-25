@@ -1,0 +1,12 @@
+npm ERR! code EJSONPARSE
+npm ERR! file /Users/nao/Documents/GitHub/M4L-x-rhythm-can/package.json
+npm ERR! JSON.parse Failed to parse json
+npm ERR! JSON.parse Unexpected token } in JSON at position 626 while parsing near '...-node": "^1.5.1",
+npm ERR! JSON.parse   }
+npm ERR! JSON.parse }
+npm ERR! JSON.parse '
+npm ERR! JSON.parse Failed to parse package.json data.
+npm ERR! JSON.parse package.json must be actual JSON, not just JavaScript.
+
+npm ERR! A complete log of this run can be found in:
+npm ERR!     /Users/nao/.npm/_logs/2020-11-25T06_40_21_417Z-debug.log

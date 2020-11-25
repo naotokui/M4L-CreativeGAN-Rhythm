@@ -18,6 +18,6 @@
   },
   "homepage": "https://github.com/sfc-computational-creativity-lab/M4L-x-rhythm-can#readme",
   "dependencies": {
-    "@tensorflow/tfjs-node": "^1.5.1",
+    "@tensorflow/tfjs-node": "^1.5.1"
   }
 }
