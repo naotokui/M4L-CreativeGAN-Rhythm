@@ -6,8 +6,7 @@ An Ableton Live Device for Creative-GAN-based rhythm generation models trained w
 You can find an exported M4L device and models [here](https://github.com/naotokui/M4L-CreativeGAN-Rhythm/tree/master/releases). 
 
 # How it works
-<a href="https://youtu.be/o-iq8vNWwO0
-"><img src="https://github.com/naotokui/M4L-CreativeGAN-Rhythm/blob/master/images/abletonlive.png?raw=true&retry=2" width="500px"></a>
+<a href="https://www.youtube.com/watch?v=ALdkDe9FbcU"><img src="https://github.com/naotokui/M4L-CreativeGAN-Rhythm/blob/master/images/abletonlive.png?raw=true&retry=2" width="500px"></a>
 
 
 # Project Page
