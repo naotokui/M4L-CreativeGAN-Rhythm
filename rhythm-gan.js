@@ -42,6 +42,8 @@ Max.addHandler("loadmodel", (path)=>{
     loadModel(filepath);
     isModelLoaded = true;
     console.log("Model loaded!");
+    Max.outlet("status", "Ready to generate!");
+
 });
 
 Max.addHandler("generate", (threshold, genre=-1)=>{
@@ -49,7 +51,8 @@ Max.addHandler("generate", (threshold, genre=-1)=>{
 });
 
 async function generatePattern(threshold, genre){
-    if (isModelLoaded){    
+  Max.outlet("status", "-");
+  if (isModelLoaded){    
       if (isGenerating) return;
   
       isGenerating = true;
@@ -84,6 +87,7 @@ async function generatePattern(threshold, genre){
       isGenerating = false;
   } else {
       console.error("Model is not loaded yet");
+      Max.outlet("status", "No Model Loaded");
   }
 }
 
