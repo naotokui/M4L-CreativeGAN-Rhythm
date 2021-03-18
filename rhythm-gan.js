@@ -15,13 +15,26 @@ const Z_DIM = 100;
 var generator;
 var isModelLoaded = false;
 var isGenerating = false;
+var last_z = null;
 
 async function loadModel(filepath){
     generator = await tf.loadLayersModel(filepath);
 }
 
-function generate(genre=-1){
-    let zs = tf.randomNormal([1, Z_DIM]);  // mean = 0.0 / stddev = 1.0
+function generate(genre=-1, noise=-1){
+  let zs = tf.randomNormal([1, Z_DIM]); 
+
+  if (last_z != null && noise >= 0.0){
+    let ns = zs.mul(tf.scalar(noise));
+    zs = tf.add(last_z, ns);
+  } else {
+    last_z = zs;
+  }
+
+  return doesGenerate(zs, genre);
+}
+
+function doesGenerate(zs, genre=-1){
 
     // conditioned with genre
     if (genre >= 0){
@@ -32,8 +45,6 @@ function generate(genre=-1){
     else {
         var outputsOn = generator.apply(zs);    
     }
-
-    console.log(outputsOn.squeeze().transpose().shape);
     return outputsOn.squeeze().transpose().arraySync();
 }
 
@@ -47,16 +58,20 @@ Max.addHandler("loadmodel", (path)=>{
 });
 
 Max.addHandler("generate", (threshold, genre=-1)=>{
-    generatePattern(threshold, genre);
+  generatePattern(threshold, genre);
 });
 
-async function generatePattern(threshold, genre){
+Max.addHandler("generate_with_last_z", (noise, threshold, genre=-1)=>{
+  generatePattern(threshold, genre, noise);
+});
+
+async function generatePattern(threshold, genre, noise){
   Max.outlet("status", "-");
   if (isModelLoaded){    
       if (isGenerating) return;
   
       isGenerating = true;
-      let onsets = generate(genre);
+      let onsets = generate(genre, noise);
 
     //  console.log(onsets);
 
