@@ -11,3 +11,6 @@ You can find an exported M4L device and models [here](https://github.com/naotoku
 
 # Project Page
 https://cclab.sfc.keio.ac.jp/projects/rhythmcan/
+
+# Design
+Title logo, Background Texture: [Naoki Ise](http://naokiise.com/) 
