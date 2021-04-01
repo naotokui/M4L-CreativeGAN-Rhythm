@@ -2,6 +2,8 @@
 
 An Ableton Live Device for Creative-GAN-based rhythm generation models trained with [CreativeGAN-Rhythm repository](https://github.com/naotokui/CreativeGAN-Rhythm).
 
+<img src="./images/ui_screenshot_ise.png" width="400px">
+
 # Download Ableton Live Device(M4L) and pre-trained tfjs models
 You can find an exported M4L device and models [here](https://github.com/naotokui/M4L-CreativeGAN-Rhythm/tree/master/releases). 
 
